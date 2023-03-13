@@ -51,14 +51,49 @@ class Auth extends BaseController
         }
     }
 
-    public function logOut()
+    public function loginAdmin()
     {
-        session()->destroy();
-        return redirect()->to('/');
+        return view('backend/v_login');
     }
 
     public function cekLoginUser()
     {
+        if ($this->validate([
+            'username' => [
+                'label' => 'Username',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Tidak boleh kosong!'
+                ]
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Tidak boleh kosong!'
+                ]
+            ],
+        ])) {
+            $username = $this->request->getPost('username');
+            $password = sha1($this->request->getPost('password'));
+            
+            $cek = $this->ModelAuth->loginUser($username, $password);
+            if ($cek) {
+                session()->set('id_user', $cek['id_user']);
+                session()->set('level', 1);
+                return redirect()->to('Admin');
+            } else {
+                session()->setFlashdata('pesan', 'Username atau Password salah!');
+                return redirect()->to('loginAdmin');
+            }
+        } else {
+            return redirect()->to('loginAdmin')->withInput();
+        }
+    }
 
+    public function logOut()
+    {
+        session()->destroy();
+        return redirect()->to('/');
     }
 }

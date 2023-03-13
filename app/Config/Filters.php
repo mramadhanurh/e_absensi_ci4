@@ -22,6 +22,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'filterkaryawan'=> \App\Filters\FilterKaryawan::class,
+        'filteruser'=> \App\Filters\FilterUser::class,
     ];
 
     /**
@@ -33,6 +34,14 @@ class Filters extends BaseConfig
             'filterkaryawan' => [
                 'except' => [
                     '/',
+                    '/loginAdmin',
+                    'Auth', 'Auth/*',
+                ]
+            ],
+            'filteruser' => [
+                'except' => [
+                    '/',
+                    '/loginAdmin',
                     'Auth', 'Auth/*',
                 ]
             ]
@@ -42,6 +51,11 @@ class Filters extends BaseConfig
             'filterkaryawan' => [
                 'except' => [
                     'Home', 'Home/*',
+                ]
+            ],
+            'filteruser' => [
+                'except' => [
+                    'Admin', 'Admin/*',
                 ]
             ]
         ],

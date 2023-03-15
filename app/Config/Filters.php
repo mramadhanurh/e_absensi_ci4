@@ -51,6 +51,7 @@ class Filters extends BaseConfig
             'filterkaryawan' => [
                 'except' => [
                     'Home', 'Home/*',
+                    'Presensi', 'Presensi/*',
                 ]
             ],
             'filteruser' => [

@@ -29,9 +29,19 @@
                     <label>Alamat</label>
                     <input name="alamat" value="<?= $setting['alamat'] ?>" class="form-control" placeholder="Alamat" required>
                   </div>
-                  <div class="form-group">
-                    <label>Lokasi Kantor</label>
-                    <input name="lokasi_kantor" value="<?= $setting['lokasi_kantor'] ?>" class="form-control" placeholder="Lokasi Kantor" required>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Lokasi Kantor</label>
+                        <input name="lokasi_kantor" value="<?= $setting['lokasi_kantor'] ?>" class="form-control" placeholder="Lokasi Kantor" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Radius (*Meter)</label>
+                        <input name="radius" value="<?= $setting['radius'] ?>" class="form-control" type="number" placeholder="Radius" required>
+                      </div>
+                    </div>
                   </div>
                   <div id="map" style="width: 100%; height: 300px;">
 
@@ -63,6 +73,6 @@
                 color: 'red',
                 fillColor: '#f03',
                 fillOpacity: 0.5,
-                radius: 500
+                radius: <?= $setting['radius'] ?>,
             }).addTo(map);
           </script>

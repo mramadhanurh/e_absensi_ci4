@@ -21,6 +21,7 @@ class Presensi extends BaseController
                 'judul' => 'Absen Masuk',
                 'menu' => 'presensi',
                 'page' => 'presensi/v_absen_masuk',
+                'kantor' => $this->ModelPresensi->dataKantor(),
             ];
             return view('v_template_front', $data);
         } else {
@@ -28,6 +29,7 @@ class Presensi extends BaseController
                 'judul' => 'Absen Keluar',
                 'menu' => 'presensi',
                 'page' => 'presensi/v_absen_keluar',
+                'kantor' => $this->ModelPresensi->dataKantor(),
             ];
             return view('v_template_front', $data);
         }

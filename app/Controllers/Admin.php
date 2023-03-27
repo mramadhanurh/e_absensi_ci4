@@ -39,6 +39,7 @@ class Admin extends BaseController
             'nama_kantor' => $this->request->getPost('nama_kantor'),
             'alamat' => $this->request->getPost('alamat'),
             'lokasi_kantor' => $this->request->getPost('lokasi_kantor'),
+            'radius' => $this->request->getPost('radius'),
         ];
         $this->ModelAdmin->updateSetting($data);
         session()->setFlashdata('pesan', 'Data berhasil diupdate!');

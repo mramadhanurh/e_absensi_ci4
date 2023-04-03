@@ -25,6 +25,7 @@ class Presensi extends BaseController
             ];
             return view('v_template_front', $data);
         } else {
+            //absen keluar
             $data = [
                 'judul' => 'Absen Keluar',
                 'menu' => 'presensi',
@@ -34,5 +35,29 @@ class Presensi extends BaseController
             return view('v_template_front', $data);
         }
         
+    }
+
+    public function insertPresensiIn()
+    {
+        $foto = $this->request->getPost('image');
+        $id_karyawan = session()->get('id_karyawan');
+        $lokasi = $this->request->getPost('lokasi');
+        //conver foto ke file
+        $folder_path = 'foto/';
+        $format_name_file = $id_karyawan."-".date('Y-m-d')."-".date('His');
+        $image_parts = explode(";base64", $foto);
+        $image_base64 = base64_decode($image_parts[1]);
+        $file_name = $format_name_file.".png";
+        $file = $folder_path.$file_name;
+
+        $data = [
+            'id_karyawan' => $id_karyawan,
+            'tgl_presensi' => date('Y-m-d'),
+            'jam_in' => date('H:i:s'),
+            'lokasi_in' => $lokasi,
+            'foto_in' => $file_name,
+        ];
+        $this->ModelPresensi->insertPresensiIn($data);
+        file_put_contents($file, $image_base64);
     }
 }

@@ -24,7 +24,7 @@
             }
         </style>
         <div class="my_camera"></div>
-        <button class="btn btn-primary btn-block">Absen Masuk</button>
+        <button class="btn btn-primary btn-block" id="TakeAbsen"><i class="fa fa-camera mr-1"></i> Absen Masuk</button>
         <input type="hidden" name="lokasi" id="lokasi">
         <div id="map" style="width: 100%; height: 400px;"></div>
     </div>
@@ -79,4 +79,28 @@
         .bindPopup("Kantormu")
         .openPopup();
     }
+
+    $('#TakeAbsen').click(function(e) {
+        
+        Webcam.snap( function(data_uri) {
+            image = data_uri;
+        } );
+        var lokasi = $('#lokasi').val();
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url('Presensi/insertPresensiIn') ?>",
+            data: {
+                image: image,
+                lokasi: lokasi,
+            },
+            success: function(response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: 'Terima Kasih, Selamat Bekerja!',
+                    footer: '<a class="btn btn-success" href="<?= base_url('Home') ?>">OK</a>'
+                })
+            }
+        });
+    });
 </script>

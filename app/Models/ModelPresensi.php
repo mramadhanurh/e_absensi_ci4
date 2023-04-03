@@ -19,4 +19,9 @@ class ModelPresensi extends Model
         return $this->db->table('tbl_setting')
         ->where('id_setting', 1)->get()->getRowArray();
     }
+
+    public function insertPresensiIn($data)
+    {
+        $this->db->table('tbl_presensi')->insert($data);
+    }
 }

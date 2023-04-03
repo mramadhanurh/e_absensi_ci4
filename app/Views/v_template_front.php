@@ -28,6 +28,25 @@
   <!-- leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+  <!-- ///////////// Js Files ////////////////////  -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Jquery -->
+  <script src="<?= base_url('front') ?>/assets/js/lib/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap-->
+  <script src="<?= base_url('front') ?>/assets/js/lib/popper.min.js"></script>
+  <script src="<?= base_url('front') ?>/assets/js/lib/bootstrap.min.js"></script>
+  <!-- Chart JS -->
+  <script src="<?= base_url('front') ?>/assets/chart/dist/chart.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+  <!-- Owl Carousel -->
+  <script src="<?= base_url('front') ?>/assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+  <!-- jQuery Circle Progress -->
+  <script src="<?= base_url('front') ?>/assets/js/plugins/jquery-circle-progress/circle-progress.min.js"></script>
+
+  <!-- Base Js File -->
+  <script src="<?= base_url('front') ?>/assets/js/base.js"></script>
+
 </head>
 
 <body style="background-color: #e9ecef">
@@ -83,22 +102,7 @@
     </div>
     <!-- * App Bottom Menu -->
 
-  <!-- ///////////// Js Files ////////////////////  -->
-  <!-- Jquery -->
-  <script src="<?= base_url('front') ?>/assets/js/lib/jquery-3.4.1.min.js"></script>
-  <!-- Bootstrap-->
-  <script src="<?= base_url('front') ?>/assets/js/lib/popper.min.js"></script>
-  <script src="<?= base_url('front') ?>/assets/js/lib/bootstrap.min.js"></script>
-  <!-- Chart JS -->
-  <script src="<?= base_url('front') ?>/assets/chart/dist/chart.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-  <!-- Owl Carousel -->
-  <script src="<?= base_url('front') ?>/assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
-  <!-- jQuery Circle Progress -->
-  <script src="<?= base_url('front') ?>/assets/js/plugins/jquery-circle-progress/circle-progress.min.js"></script>
-
-  <!-- Base Js File -->
-  <script src="<?= base_url('front') ?>/assets/js/base.js"></script>
+  
 
   <script>
     const ctx = document.getElementById('myChart');

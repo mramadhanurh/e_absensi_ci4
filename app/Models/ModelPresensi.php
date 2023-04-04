@@ -24,4 +24,11 @@ class ModelPresensi extends Model
     {
         $this->db->table('tbl_presensi')->insert($data);
     }
+
+    public function insertPresensiOut($data)
+    {
+        $this->db->table('tbl_presensi')
+            ->where('id_presensi', $data['id_presensi'])
+            ->update($data);
+    }
 }

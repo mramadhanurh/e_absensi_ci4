@@ -98,6 +98,7 @@
                     icon: 'success',
                     title: 'Berhasil!',
                     text: 'Terima Kasih, Selamat Bekerja!',
+                    showConfirmButton: false,
                     footer: '<a class="btn btn-success" href="<?= base_url('Home') ?>">OK</a>'
                 })
             }

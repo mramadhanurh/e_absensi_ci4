@@ -9,3 +9,23 @@
         <div class="right"></div>
     </div>
     <!-- * App Header -->
+
+    <div class="row" style="margin-top: 70px;">
+        <div class="col-sm-12 text-center">
+            <i class="far fa-check-circle fa-7x text-success"></i>
+        </div>
+        <div class="col-sm-12 text-center">
+            <h2>Anda Sudah Absen Hari Ini !</h2>
+        </div>
+        <div class="col-sm-12 text-center">
+            <h3><?= date('d F Y', strtotime($presensi['tgl_presensi'])) ?></h3>
+            <h3 class="text-success">Masuk : <?= $presensi['jam_in'] ?> WIB</h3>
+            <h3 class="text-danger">Pulang : <?= $presensi['jam_out'] ?> WIB</h3>
+        </div>
+        <div class="col-sm-12 text-center">
+            <h2 class="text-primary">Selamat Beristirahat !</h2>
+        </div>
+
+        
+            
+    </div>

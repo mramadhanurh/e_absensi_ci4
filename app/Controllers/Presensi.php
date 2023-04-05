@@ -40,6 +40,7 @@ class Presensi extends BaseController
                     'judul' => 'Sudah Absen',
                     'menu' => 'presensi',
                     'page' => 'presensi/v_sudah_absen',
+                    'presensi' => $this->ModelPresensi->cekPresensi(),
                 ];
                 return view('v_template_front', $data);
             }

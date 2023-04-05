@@ -27,10 +27,14 @@
         <button class="btn btn-danger btn-block" id="TakeAbsen"><i class="fa fa-camera mr-1"></i> Absen Keluar</button>
         <input type="hidden" name="lokasi" id="lokasi">
         <div id="map" style="width: 100%; height: 400px;"></div>
+        <audio id="notifikasi_out">
+            <source src="<?= base_url('sound/sound_out.mp3') ?>" type="audio/mpeg">
+        </audio>
     </div>
 </div>
 
 <script>
+    var notifikasi_out = document.getElementById('notifikasi_out');
     Webcam.set({
         width: 420,
         height: 340,
@@ -85,6 +89,7 @@
         Webcam.snap( function(data_uri) {
             image = data_uri;
         } );
+        notifikasi_out.play();
         var lokasi = $('#lokasi').val();
         $.ajax({
             type: "POST",

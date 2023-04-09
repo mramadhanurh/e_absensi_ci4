@@ -82,6 +82,20 @@
         }).addTo(map)
         .bindPopup("Kantormu")
         .openPopup();
+
+        //hitung jarak antara posisi pengguna dengan posisi kantor
+        var userLocation = L.latLng(position.coords.latitude, position.coords.longitude);
+        var distance = userLocation.distanceTo(circle.getLatLng());
+        if (distance > circle.getRadius()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Peringatan!',
+                text: 'Lokasi Anda Terlalu Jauh Dari Kantor!, Anda Harus Berada Di Dalam Radius Yang Telah Ditentukan!',
+                showConfirmButton: false,
+                footer: '<a class="btn btn-success" href="<?= base_url('Home') ?>">OK</a>'
+            });
+            document.getElementsByTagName("button")[0].disabled = true;
+        }
     }
 
     $('#TakeAbsen').click(function(e) {
